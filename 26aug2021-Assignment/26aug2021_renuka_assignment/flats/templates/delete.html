@@ -1,0 +1,70 @@
+{% extends 'header.html'%}
+{% block myContent %}
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <div class="col col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+        <form action="http://127.0.0.1:8000/flat/deletesearchapi/" method="post">
+            <table class="table">
+                <tr>
+                    <td>Building Number</td>
+                    <td><input name="BuildingNo" type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" class="btn btn-success">SEARCH</button></td>
+                </tr>
+    
+
+            </table>
+        </form>
+        
+
+            {% if data %}
+            <form action="http://localhost:8000/flat/deleteactionapi/" method="POST">
+            <table class="table">
+                {% for i in data %}
+                <tr>
+                    <td></td>
+                    <td> <input name="newid" value="{{i.id}}" type="hidden" class="formcontrol" readonly> </td>
+                </tr>
+                <tr>
+                    <td>Owner Name</td>
+                    <td><input name="newOwnerName" value="{{i.OwnerName}}" type="text" class="formcontrol"></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input name="newAddress" value="{{i.Address}}" type="text" class="formcontrol"></td>
+                </tr>  
+                <tr>
+                    <td>Mobile Number</td>
+                    <td><input name="newMobileNumber" value="{{i.MobileNumber}}" type="text" class="formcontrol"></td>
+                </tr>
+                <tr>
+                    <td>Aadhaar Number</td>
+                    <td><input name="newAadhaarNumber" value="{{i.AadhaarNumber}}" type="text" class="formcontrol"></td>
+                </tr>
+                <tr>
+                    <td>Email Id</td>
+                    <td><input name="newEmailId" value="{{i.EmailId}}" type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input name="newPassword" value="{{i.Password}}" type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button class="btn btn-secondary">DELETE</button></td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </form>
+           
+
+            {% endif %}
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+l{% extends 'header.html' %} 
+
+{% block myContent %}
+
+<div class="container">
+    <div class="row">
+      <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+      <div class="col col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+      <table class="table">
+        <h3><center>VIEW ALL FLATS</center></h3>
+        <thead class="table">
+          <tr>
+            <th>Building Number</th>
+            <th>Owner Name</th>
+            <th>Address</th>
+            <th>Mobile Number</th>
+            <th>Aadhaar Number</th>
+            <th>Email Id</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        {% for i in data %}
+        <tbody>
+          <tr>
+            <td>{{i.BuildingNo   }}</td>
+            <td>{{i.OwnerName  }}</td>
+            <td>{{i.Address }}</td>
+            <td>{{i.MobileNumber }}</td>
+            <td>{{i.AadhaarNumber }}</td>
+            <td>{{i.EmailId }}</td>
+            <td>{{i.Password }}</td>
+          </tr>
+        {% endfor %}
+  
+        </tbody>
+        </table>
+  
+      </div>
+  
+      <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+    </div>
+  </div>
+  {% endblock %}

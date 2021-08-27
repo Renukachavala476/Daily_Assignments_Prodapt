@@ -1,0 +1,59 @@
+{% extends 'header.html'%}
+{% block myContent %}
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <div class="col col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+        <form action="http://127.0.0.1:8000/flat/search/" method="post">
+            <table class="table">
+                <tr>
+                    <td>Buiding Number</td>
+                    <td><input name="BuildingNo" type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" class="btn btn-success">SEARCH</button></td>
+                </tr>
+    
+
+            </table>
+        </form>
+        </div>
+
+            {% if data %}
+            <table class="table">
+                {% for i in data %}
+                <tr>
+                    <td>Owner Name</td>
+                    <td>{{i.OwnerName}}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{i.Address}}</td>
+                </tr>
+                <tr>
+                    <td>Mobile Number</td>
+                    <td>{{i.MobileNumber}}</td>
+                </tr>
+                <tr>
+                    <td>Aadhaar Number</td>
+                    <td>{{i.AadhaarNumber}}</td>
+                </tr>
+                <tr>
+                    <td>Email Id</td>
+                    <td>{{i.EmailId}}</td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>{{i.Password}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+           
+
+            {% endif %}
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+    </div>
+</div>
+{% endblock %}

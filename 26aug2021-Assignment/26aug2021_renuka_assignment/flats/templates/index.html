@@ -1,0 +1,54 @@
+{% extends 'header.html' %} 
+
+{% block myContent %}
+<div class="container">
+  <div class="row">
+    <div class="col col-12 col-sm-2 col-md-2">
+
+    </div>
+    <div class="col col-12 col-sm-8 col-md-8">
+      <form action="http://127.0.0.1:8000/flat/fadd/" method="post">
+
+        <table class="table table-boarderless">
+          <tr>
+            <td>Building Number</td>
+            <td><input name="BuildingNo" type="text" class="form-control"></td>
+          </tr>
+          <tr>
+            <td>Owner Name</td>
+            <td><input name="OwnerName" type="text" class="form-control"></td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td><input name="Address" type="text" class="form-control"></td>
+          </tr>
+          <tr>
+            <td>Mobile Number</td>
+            <td><input name="MobileNumber" type="text" class="form-control"></td>
+          </tr>
+          <tr>
+              <td>Aadhaar Number</td>
+              <td><input name="AadhaarNumber"type="text" class="form-control"></td>
+          </tr>
+          <tr>
+              <td>Email Id</td>
+              <td><input name="EmailId" type="text" class="form-control"></td>
+          </tr>
+          <tr>
+              <td>Password</td>
+              <td><input name="Password" type="text" class="form-control"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><center>   <button type="submit" class="btn btn-success">SEND</button></center>  </td>
+          </tr>
+          <div class="col col-12 col-sm-2 col-md-2">
+
+          </div>
+
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
