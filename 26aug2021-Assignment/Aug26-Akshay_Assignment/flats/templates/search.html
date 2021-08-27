@@ -1,0 +1,58 @@
+{% extends 'head.html' %}
+{% block myCode %}
+
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+        <div class="col col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+            <form action="http://127.0.0.1:8000/flats/search/" method="post">
+                <table class="table table-borderless" >
+                    <tr>
+                        <td>Building No</td>
+                        <td><input name="buildingno" type="number" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><center><button class="btn btn-primary" type="submit" >Search</button></center></td>
+                    </tr>
+                </table>
+            </form>
+
+            {% if data %}
+            <table  class="table table-striped" bgcolor="white">
+                {% for i in data %}
+                <tr>
+                    <td>Building No</td>
+                    <td>{{i.buildingno}}</td>
+                </tr>
+                <tr>
+                    <td>Owner Name</td>
+                    <td>{{i.ownername}}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{i.address}}</td>
+                </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td>{{i.mobno}}</td>
+                </tr>
+                <tr>
+                    <td>Aadhar Number</td>
+                    <td>{{i.aadharno}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{i.email}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        </div>
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+    </div>
+</div>
+
+
+
+{% endblock %}
