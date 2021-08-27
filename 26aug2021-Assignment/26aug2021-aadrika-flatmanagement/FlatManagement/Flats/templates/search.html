@@ -1,0 +1,79 @@
+{% extends 'headings.html' %}
+{% block mycontent %}
+
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+        <div class="col col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+        <center><h2><u>SEARCH RECORDS</u></h2></center>
+           <form action="http://127.0.0.1:8000/flats/searchapi/" method="post">
+            <table class="table table-borderless">
+                <tr>
+                    <td>Building number</td>
+                    <td><input name="buildnum" type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" class="btn btn-success">Search</button></td>
+                </tr>
+                
+            </table></form>
+        {% if data %}
+            <table class="table table-borderless">
+                {% for i in data %}
+                <tr>
+                    <td class="search">Building number</td>
+                    <td>{{ i.buildnum }}</td>
+                    
+                </tr>
+                <tr>
+                    <td class="search">Owner Name</td>
+                    <td>{{ i.oname}}</td>
+                    
+                </tr>
+                <tr>
+                    <td class="search">Address</td>
+                    <td>{{ i.address }}</td>
+                    
+                </tr>
+                <tr>
+                    <td class="search">Mobile</td>
+                    <td>{{ i.mobile }}</td>
+                    
+                </tr>
+                <tr>
+                    <td class="search">Aadhar Number</td>
+                    <td>{{ i.adhar }}</td>
+                    
+                </tr>
+                <tr>
+                    <td class="search">Email</td>
+                    <td>{{ i.email }}</td>
+                    
+                </tr>
+                {% endfor %}
+            </table>
+
+
+
+
+
+
+
+        {% endif %}
+        
+        </div>
+            <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+            
+            
+            
+            
+           
+
+
+
+
+    </div>
+</div>
+{% endblock  %}
+    
