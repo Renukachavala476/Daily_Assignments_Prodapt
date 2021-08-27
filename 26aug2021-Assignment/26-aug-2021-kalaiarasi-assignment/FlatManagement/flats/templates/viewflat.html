@@ -1,0 +1,45 @@
+{% extends 'header.html' %}
+{% block mycontent %}
+<title>viewall page</title>
+<body class="mycolor">
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-2 col-md-2 col-xl-2 col-xxl-2"></div>
+        <div class="col col-12 col-sm-8 col-md-8 col-xl-8 col-xxl-8 table-responsive">
+            <table class="table table-borderless table-striped">
+                <thead class="table-info">
+                    <tr>
+                        <th>Buildingno</th>
+                        <th>Ownername</th>
+                        <th>Address</th>
+                        <th>Mobnum</th>
+                        <th>AdhaarNo</th>
+                        <th>Emailid</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                        <tr>
+
+                            <td>{{i.buildingno}}</td>
+                            <td>{{i.ownername}}</td>
+                            <td>{{i.address}}</td>
+                            <td>{{i.Mobnum}}</td>
+                            <td>{{i.adhaarno}}</td>
+                            <td>{{i.emailid}}</td>
+                            <td>{{i.password}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col col-12 col-sm-2 col-md-2 col-xl-2 col-xxl-2"></div>
+    </div>
+</div>
+</body>
+
+
+
+
+{% endblock %}

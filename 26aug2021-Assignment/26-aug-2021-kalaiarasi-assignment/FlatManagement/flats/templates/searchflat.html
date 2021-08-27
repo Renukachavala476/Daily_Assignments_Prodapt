@@ -1,0 +1,70 @@
+{% extends 'header.html' %}
+{% block mycontent %}
+<title>search page</title>
+
+<div class="container">
+    <body class="mycolor">
+    <div class="row">
+        <div class="col col-12 col-sm-2 col-md-2 col-xl-2 col-xxl-2"></div>
+        <div class="col col-12 col-sm-8 col-md-8 col-xl-8 col-xxl-8">
+            <form action="http://127.0.0.1:8000/flats/search/" method="POST">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>Buildingno</td>
+                        <td><input type="number" name="buildingno"class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="btn btn-success">SEARCH</button></td>
+                    </tr>
+                </table>
+            </form>
+
+                {% if data %}
+
+                    <table class="table table-borderless table-striped">
+                        {% for i in data %}
+                            <tr>
+                                <td>Buildingno</td>
+                                <td>{{i.buildingno}}</td>
+                            </tr>
+                            <tr>
+                                <td>Ownername</td>
+                                <td>{{i.ownername}}</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td>{{i.address}}</td>
+                            </tr>
+                            <tr>
+                                <td>Mobnum</td>
+                                <td>{{i.Mobnum}}</td>
+                            </tr>
+                            <tr>
+                                <td>AdhaarNo</td>
+                                <td>{{i.adhaarno}}</td>
+                            </tr>
+                            <tr>
+                                <td>Emailid</td>
+                                <td>{{i.emailid}}</td>
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td>{{i.password}}</td>
+                            </tr>
+
+                        {% endfor %}    
+                    </table>
+                {% endif %}
+        </div>
+        
+        <div class="col col-12 col-sm-2 col-md-2 col-xl-2 col-xxl-2"></div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
