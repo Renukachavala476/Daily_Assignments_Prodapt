@@ -1,0 +1,74 @@
+
+{% extends 'head.html'  %}
+{%  block content  %}
+
+<div class="container">
+  <div class="row">
+    <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+    <div class="col col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+
+        <form action="http://127.0.0.1:8000/flats/updatesearchflat/" method="post">
+        <table class="table table-borderless">
+            <tr>
+                <td> Building Number </td>
+                <td> <input name="building_no" type="text" class="form-control" placeholder="Enter building number to update"> </td>
+            </tr>
+            <tr>
+                <td>  </td>
+                <td> <center> <button type="submit" > SEARCH </button> </center> </td>
+            </tr>
+        </table>
+      </form>
+      {% if data  %}
+      
+      <form action="http://127.0.0.1:8000/flats/update_api/" method="post">
+        <table class="table table-borderless">
+            {% for i in data %}
+            <tr>
+                <td> </td>
+                <td> <input name="newid" value="{{i.id}}" type="hidden" class="form-control"> </td>
+              </tr>
+            <tr>
+              <td> <b>Building Number</b> </td>
+              <td> <input name="newbuilding_no" value="{{i.building_no}}" type="text" class="form-control"> </td>
+            </tr>
+            <tr>
+              <td> <b>Owner Name</b> </td>
+              <td> <input name="newowner_name" value="{{i.owner_name}}" type="text" class="form-control"> </td>
+            </tr>
+            <tr>
+              <td> <b>Address</b> </td>
+              <td> <input name="newaddress" value="{{i.address}}" type="text" class="form-control"> </td>
+            </tr>
+            <tr>
+              <td> <b>Mobile Number</b> </td>
+              <td> <input name="newmobile_no" value="{{i.mobile_no}}" type="text" class="form-control"> </td>
+            </tr>
+            <tr>
+              <td> <b>Aadhar Number</b> </td>
+              <td> <input  name="newaadhar_no" value="{{i.aadhar_no}}" type="text" class="form-control"readonly > </td>
+            </tr>
+            <tr>
+              <td> <b>Email-id</b> </td>
+              <td> <input name="newemail" value="{{i.email}}" type="text" class="form-control"> </td>
+            </tr>
+            <tr>
+              <td> <b>Password</b> </td>
+              <td> <input name="newpassword" value="{{i.password}}" type="password" class="form-control"> </td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> <center> <button type="submit"> UPDATE </button> </center> </td>
+              </tr>
+            {% endfor %}
+          </table>
+
+      </form>
+      {% endif %}
+      
+        
+    </div>
+    <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+  </div>
+</div>
+{%  endblock  %}
