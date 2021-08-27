@@ -1,0 +1,42 @@
+{% extends 'head.html' %}
+{% block myCode %}
+
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+        <div class="col col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+            <br>
+            <table class="table table-striped" bgcolor="white">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Building Number</th>
+                        <th>Owner Name</th>
+                        <th>Address</th>
+                        <th>Mobile Number</th>
+                        <th>Aadhar Number</th>
+                        <th>Email</th>
+                        
+                    </tr>
+
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{i.buildingno}}</td>
+                        <td>{{i.ownername}}</td>
+                        <td>{{i.address}}</td>
+                        <td>{{i.mobno}}</td>
+                        <td>{{i.aadharno}}</td>
+                        <td>{{i.email}}</td>
+                    </tr>
+                   {% endfor %}
+
+                </tbody>
+
+            </table>
+        </div>
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl 2"></div>
+    </div>
+</div>
+
+{% endblock %}
