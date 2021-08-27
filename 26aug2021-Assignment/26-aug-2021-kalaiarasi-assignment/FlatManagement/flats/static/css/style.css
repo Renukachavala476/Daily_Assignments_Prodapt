@@ -1,0 +1,26 @@
+.mypage
+{
+    
+    background-image:url('/static/images.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+
+.space
+{
+    position: relative;
+    left:-10px;
+}
+
+.mycolor
+{
+    background:linear-gradient(#acb6e5,#86fde8);
+    
+    height:110vh;
+
+}
+.mybutton
+{
+    background-color:lightcoral;
+}

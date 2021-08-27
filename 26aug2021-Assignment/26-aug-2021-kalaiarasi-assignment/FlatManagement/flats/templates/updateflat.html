@@ -1,0 +1,80 @@
+{% extends 'header.html' %}
+{% block mycontent %}
+<title>update page</title>
+
+<div class="container">
+    <body class="mycolor">
+    <div class="row">
+        <div class="col col-12 col-sm-2 col-md-2 col-xl-2 col-xxl-2"></div>
+        <div class="col col-12 col-sm-8 col-md-8 col-xl-8 col-xxl-8">
+            <form action="http://127.0.0.1:8000/flats/updatesearchapi/" method="POST">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>Buildingno</td>
+                        <td><input type="number" name="buildingno"class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="btn btn-success">SEARCH</button></td>
+                    </tr>
+                </table>
+            </form>
+
+                {% if data %}
+                <form action="http://127.0.0.1:8000/flats/updateaction/" method="POST">
+                    <table class="table table-borderless table-striped">
+                        {% for i in data %}
+                            <tr>
+                                <td>id</td>
+                                <td><input name="newid" value="{{i.id}}"type="text" class="form-control" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Buildingno</td>
+                                <td><input name="newbuildno" value="{{i.buildingno}}"type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>ownername</td>
+                                <td><input name="newname" value="{{i.ownername}}"type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>address</td>
+                                <td><input name="newaddress" value="{{i.address}}"type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Mobnum</td>
+                                <td><input name="newmobnum" value="{{i.Mobnum}}"type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>AdhaarNo</td>
+                                <td><input name="newadhaar" value="{{i.adhaarno}}" type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Emailid</td>
+                                <td><input name="newemail" value="{{i.emailid}}"type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td><input name="newpassword" value="{{i.password}}" type="text" class="form-control"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td></td>
+                                <td><button class="btn mybutton">UPDATE</button></td>
+                            </tr>
+
+                        {% endfor %}    
+                    </table>
+                </form>
+                {% endif %}
+        </div>
+        
+        <div class="col col-12 col-sm-2 col-md-2 col-xl-2 col-xxl-2"></div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
